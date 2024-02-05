@@ -4,6 +4,7 @@ import "./globals.css";
 import { sql } from "@vercel/postgres";
 import CreateProfile from "@/components/CreateProfile";
 import Header from "@/components/Header";
+import Title from "@/components/Title";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -19,10 +20,10 @@ export default async function RootLayout({ children }) {
     <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
+          <Title />
           <SignIn />
           {profileRes.rowCount !== 0 && <Header />}
 
-          <h1>Welcome to THE BAKERS</h1>
           {profileRes.rowCount !== 0 && children}
 
           {profileRes.rowCount === 0 && <CreateProfile />}

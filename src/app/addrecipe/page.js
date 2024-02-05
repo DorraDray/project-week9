@@ -27,60 +27,27 @@ export default async function AddRecipe() {
     );
 
     // revalidate the path so the new item shows
-    revalidatePath(`/recipes`);
+    revalidatePath(`/`);
 
     // take me to the home pagen
-    redirect(`/recipes`);
+    redirect(`/`);
   }
 
   return (
-    <div className="container mx-auto p-4">
-      <h2 className="text-3xl font-bold mb-4">Add Recipe</h2>
+    <div>
+      <h2>Add Recipe</h2>
       <form action={handleAddRecipe} className="max-w-md">
         <div className="mb-4">
-          <label
-            htmlFor="name"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Name
-          </label>
-          <input
-            name="name"
-            id="name"
-            placeholder="name"
-            required
-            className="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
-          />
+          <label htmlFor="name">Name</label>
+          <input name="name" id="name" placeholder="name" required />
         </div>
         <div className="mb-4">
-          <label
-            htmlFor="name"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Recipe Content
-          </label>
-          <input
-            name="content"
-            id="content"
-            placeholder="content"
-            required
-            className="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
-          />
+          <label htmlFor="name">Recipe Content</label>
+          <input name="content" id="content" placeholder="content" required />
         </div>
         <div className="mb-4">
-          <label
-            htmlFor="name"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Add Photo
-          </label>
-          <input
-            name="photo"
-            id="photo"
-            placeholder="photo"
-            required
-            className="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
-          />
+          <label htmlFor="name">Add Photo</label>
+          <input name="photo" id="photo" placeholder="photo" required />
         </div>
         <SaveRecipeButton />
       </form>

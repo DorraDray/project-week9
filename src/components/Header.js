@@ -7,31 +7,24 @@ export default async function Header() {
   const { userId } = auth();
   const profileRes =
     await sql`SELECT * FROM profiles WHERE clerk_user_id = ${userId}`;
-
+  const profilefollowers = await sql`SELECT * FROM profile_followers  WHERE 	
+    Profile_id = ${profileRes.id}`;
+  const profilefollowing = await sql`SELECT * FROM profile_followers  WHERE 	
+    Follower_id = ${profileRes.id}`;
   return (
-    <header className="bg-indigo-700 p-4 text-center">
-      <h1 className="text-white text-4xl font-semibold mb-4">The Bakers</h1>
+    <header>
       <nav>
-        <Link className="text-white mx-4 hover:text-gray-300" href="/">
+        <Link href="/">
           <AvatarProfile image={profileRes.rows[0].photo} />
         </Link>
-        <Link className="text-white mx-4 hover:text-gray-300" href="/about">
+        <Link href="/">Home</Link>
+        <Link href="/addrecipe">Add Recipes</Link>
+        <Link href="/updateprofile">Update your profile</Link>
+        <Link href="/followers">{profilefollowers.rows.length}Followers</Link>
+        <Link href="/following">{profilefollowing.rows.length}Following</Link>
+        <Link href="/updateprofile">Contact</Link>
+        <Link href="/about">
           <UserButton afterSignOutUrl="/" />
-        </Link>
-        <Link className="text-white mx-4 hover:text-gray-300" href="/addrecipe">
-          Add Recipes
-        </Link>
-        <Link
-          className="text-white mx-4 hover:text-gray-300"
-          href="/updateprofile"
-        >
-          Update your profile
-        </Link>
-        <Link
-          className="text-white mx-4 hover:text-gray-300"
-          href="/updateprofile"
-        >
-          Contact
         </Link>
       </nav>
     </header>

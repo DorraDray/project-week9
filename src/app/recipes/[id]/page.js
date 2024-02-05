@@ -14,7 +14,7 @@ export default async function SingleRecipePage({ params }) {
   //   }
   return (
     <div>
-      <Recipe recipeid={params.id} />
+      <Recipe recipeid={params.id} content={true} />
 
       <div>
         <Link href={`/recipes/${params.id}/addComment`}>Comment</Link>

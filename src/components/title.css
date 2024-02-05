@@ -1,0 +1,18 @@
+.title img {
+  display: flex;
+  justify-content: center;
+  height: 120px;
+  width: auto;
+  align-items: center;
+  right: 100px;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align items to the top */
+}
+
+.center {
+  text-align: center;
+}

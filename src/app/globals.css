@@ -1,0 +1,18 @@
+nav {
+  background-color: #f7f1f1; /* Change this to your preferred background color */
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  color: rgb(42, 40, 40);
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+  color: rgb(243, 18, 18);
+}

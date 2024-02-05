@@ -1,22 +1,42 @@
 import { sql } from "@vercel/postgres";
 import AspectRatioDemo from "./AspectRatioDemo ";
+import AspectRatioDemoContent from "./AspectRatioDemoContent";
+import Link from "next/link";
 
-export default async function Recipe({ recipeid }) {
-  // console.log("id:", recipeid);
-  const profileResult = await sql`SELECT profiles.username  FROM profiles
-    JOIN profile_recipes ON profiles.id = profile_recipes.profile_id
-    WHERE profile_recipes.id = ${recipeid}`;
-  const userProfile = profileResult.rows[0];
+export default async function Recipe({ recipeid, content }) {
+  console.log("CONTENT:", content);
 
   const recipeResult =
     await sql`SELECT * FROM profile_recipes WHERE profile_recipes.id = ${recipeid}`;
   const recipe = recipeResult.rows[0];
+  const shouldDisplayContent = !!content;
+  const containerStyles = {
+    display: "flex",
+    flexDirection: shouldDisplayContent ? "row" : "column",
+    alignItems: shouldDisplayContent ? "center" : "flex-start",
+    margin: "10px",
+  };
+
+  const imageStyles = {
+    flex: "0 0 30%", // Adjust the width as needed
+  };
+
   return (
-    <div className="recipe-card">
-      <h2>{userProfile.username}</h2>
-      <h3>{recipe.name}</h3>
-      <AspectRatioDemo image={recipe.photo} />
-      <h3>{recipe.content}</h3>
+    <div style={containerStyles}>
+      <div style={imageStyles}>
+        {shouldDisplayContent ? (
+          <AspectRatioDemo image={recipe.photo} />
+        ) : (
+          <div>
+            <AspectRatioDemoContent image={recipe.photo} />
+            <p>HELLO</p>
+          </div>
+        )}
+      </div>
+      <div>
+        <h3>{recipe.name}</h3>
+        {shouldDisplayContent && <p>{recipe.content}</p>}
+      </div>
     </div>
   );
 }
