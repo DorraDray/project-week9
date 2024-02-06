@@ -12,4 +12,3 @@ const nextConfig = {
 };
 
 export default nextConfig;
-farm3.staticflickr.com;
