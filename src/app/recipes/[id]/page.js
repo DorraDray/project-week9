@@ -18,7 +18,7 @@ export default async function SingleRecipePage({ params }) {
 
       <div>
         <Link href={`/recipes/${params.id}/addComment`}>Comment</Link>
-        <Link href={`/recipes/${params.id}/editRecipe`}>Edit</Link>
+        <Link href={`/recipes/${params.id}/editrecipe`}>Edit</Link>
         <Link href={`/recipes/${params.id}/deleteRecipe`}>Delete</Link>
       </div>
       {commentsResult.rows.map((comment) => (

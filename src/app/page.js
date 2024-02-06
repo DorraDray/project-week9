@@ -6,7 +6,7 @@ import Recipe from "@/components/Recipe";
 import ProfileName from "@/components/ProfileName";
 export default async function Home() {
   // const { userId } = auth();
-  const recipes = await sql`SELECT * FROM profile_recipes `;
+  const recipes = await sql`SELECT * FROM profile_recipes ORDER BY created_on`;
 
   // if (!recipes) {
   //   notFound();

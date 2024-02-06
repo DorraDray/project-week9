@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import * as AspectRatio from "@radix-ui/react-aspect-ratio";
-import "./AspectRatioDemo.css";
+import "./aspectratio.css";
 
 const AspectRatioDemo = ({ image }) => (
   <div className="Container">
