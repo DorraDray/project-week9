@@ -1,3 +1,7 @@
+* {
+  padding: 0%;
+  margin: 0%;
+}
 nav {
   background-color: #f7f1f1; /* Change this to your preferred background color */
   padding: 10px;
@@ -12,7 +16,24 @@ nav a {
   text-decoration: none;
 }
 
-nav a:hover {
+nav a:hover,
+.ProfileName:hover {
+  text-decoration: underline;
+  color: rgb(243, 18, 18);
+}
+.ProfileName {
+  color: rgb(42, 40, 40);
+  margin: 20px 50px;
+  text-decoration: none;
+}
+.RecipeName {
+  color: rgb(42, 40, 40);
+  margin: 20px 30px;
+  text-decoration: none;
+  font-weight: bold;
+  width: 300px;
+}
+.RecipeName:hover {
   text-decoration: underline;
   color: rgb(243, 18, 18);
 }

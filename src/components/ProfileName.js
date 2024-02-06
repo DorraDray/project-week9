@@ -8,7 +8,7 @@ export default async function ProfileName({ profileid }) {
 
   return (
     <div>
-      <h3>{userProfile.username}</h3>
+      <p className="ProfileName">{userProfile.username}</p>
     </div>
   );
 }

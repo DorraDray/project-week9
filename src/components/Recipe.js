@@ -13,8 +13,10 @@ export default async function Recipe({ recipeid, content }) {
   const containerStyles = {
     display: "flex",
     flexDirection: shouldDisplayContent ? "row" : "column",
-    alignItems: shouldDisplayContent ? "center" : "flex-start",
-    margin: "10px",
+    alignItems: shouldDisplayContent ? "center" : "space-between",
+    margin: "20px",
+    alignContent: "center",
+    marginLeft: "40px",
   };
 
   const imageStyles = {
@@ -25,16 +27,20 @@ export default async function Recipe({ recipeid, content }) {
     <div style={containerStyles}>
       <div style={imageStyles}>
         {shouldDisplayContent ? (
-          <AspectRatioDemo image={recipe.photo} />
+          <div>
+            <AspectRatioDemoContent
+              className="RecipeImage"
+              image={recipe.photo}
+            />
+          </div>
         ) : (
           <div>
-            <AspectRatioDemoContent image={recipe.photo} />
-            <p>HELLO</p>
+            <AspectRatioDemo image={recipe.photo} />
           </div>
         )}
       </div>
       <div>
-        <h3>{recipe.name}</h3>
+        <p className="RecipeName">{recipe.name}</p>
         {shouldDisplayContent && <p>{recipe.content}</p>}
       </div>
     </div>

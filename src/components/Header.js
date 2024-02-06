@@ -8,9 +8,9 @@ export default async function Header() {
   const profileRes =
     await sql`SELECT * FROM profiles WHERE clerk_user_id = ${userId}`;
   const profilefollowers = await sql`SELECT * FROM profile_followers  WHERE 	
-    Profile_id = ${profileRes.id}`;
+    Profile_id = ${profileRes.rows[0].id}`;
   const profilefollowing = await sql`SELECT * FROM profile_followers  WHERE 	
-    Follower_id = ${profileRes.id}`;
+    Follower_id = ${profileRes.rows[0].id}`;
   return (
     <header>
       <nav>
@@ -20,8 +20,8 @@ export default async function Header() {
         <Link href="/">Home</Link>
         <Link href="/addrecipe">Add Recipes</Link>
         <Link href="/updateprofile">Update your profile</Link>
-        <Link href="/followers">{profilefollowers.rows.length}Followers</Link>
-        <Link href="/following">{profilefollowing.rows.length}Following</Link>
+        <Link href="/followers">{profilefollowers.rows.length} Followers</Link>
+        <Link href="/following">{profilefollowing.rows.length} Following</Link>
         <Link href="/updateprofile">Contact</Link>
         <Link href="/about">
           <UserButton afterSignOutUrl="/" />
