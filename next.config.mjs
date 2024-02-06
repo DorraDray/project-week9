@@ -5,10 +5,11 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "",
+        hostname: "**",
       },
     ],
   },
 };
 
 export default nextConfig;
+farm3.staticflickr.com;
