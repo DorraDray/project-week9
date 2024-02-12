@@ -1,12 +1,13 @@
+"use client";
 import React from "react";
 import * as Progress from "@radix-ui/react-progress";
-import "./progressdemo.css";
+import "@/components/progressdemo.css";
 
 const ProgressDemo = () => {
-  const [progress, setProgress] = React.useState(13);
+  const [progress, setProgress] = React.useState(0);
 
   React.useEffect(() => {
-    const timer = setTimeout(() => setProgress(66), 500);
+    const timer = setTimeout(() => setProgress(100), 1);
     return () => clearTimeout(timer);
   }, []);
 

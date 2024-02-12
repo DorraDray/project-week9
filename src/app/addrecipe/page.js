@@ -43,7 +43,13 @@ export default async function AddRecipe() {
         </div>
         <div className="mb-4">
           <label htmlFor="name">Recipe Content</label>
-          <input name="content" id="content" placeholder="content" required />
+          <input
+            type="longtext"
+            name="content"
+            id="content"
+            placeholder="content"
+            required
+          />
         </div>
         <div className="mb-4">
           <label htmlFor="name">Add Photo</label>

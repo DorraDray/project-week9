@@ -37,3 +37,20 @@ nav a:hover,
   text-decoration: underline;
   color: rgb(243, 18, 18);
 }
+/* SingleRecipePage.module.css */
+
+/* SingleRecipePage.module.css */
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 20px; /* Spacing between columns */
+}
+
+.recipe-info {
+  grid-column: span 2; /* Span across both columns */
+}
+
+.recipe-image {
+  max-width: 100%;
+}
