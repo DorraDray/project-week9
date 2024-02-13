@@ -39,12 +39,12 @@ export default async function EditRecipe({ params }) {
         </div>
 
         <div>
-          <label htmlFor="recipe">Edit Recipe</label>
+          <label htmlFor="content">Edit Recipe</label>
 
           <input
-            name="recipe"
-            id="recipee"
-            placeholder="recipe"
+            name="content"
+            id="content"
+            placeholder="content"
             defaultValue={singleRecipe.content}
             required
           />

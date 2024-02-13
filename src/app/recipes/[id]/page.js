@@ -18,31 +18,46 @@ export default async function SingleRecipePage({ params }) {
   return (
     <div className="container">
       <div className="recipeInfo">
-        <h3>{recipe.name}</h3>
+        <h3 className="recipeInfoname">{recipe.name}</h3>
         <img src={recipe.photo} className="recipe-image" />
       </div>
       <div>
-        <p>{recipe.content}</p>
+        <p className="recipeInfoptag">{recipe.content}</p>
         <div className="actions">
           {profileUserId.id === recipeResult.profile_id && (
             <>
               <Link href={`/recipes/${params.id}/editrecipe`}>Edit</Link>
-              <Link href={`/recipes/${params.id}/deleteRecipe`}>Delete</Link>
+              <Link href={`/recipes/${params.id}/deleterecipe`}>Delete</Link>
             </>
           )}
           <Link href={`/recipes/${params.id}/addComment`}>Comment</Link>
         </div>
       </div>
-
-      {commentsResult.rows.map((comment) => (
-        <div key={comment.id + comment.content} className="comment">
-          <ProfileName profileid={comment.profile_id} />
-          <p>{comment.content}</p>
-          {profileUserId.id === commentsResult.profile_id && (
-            <Link href={`/recipes/${params.id}/${comment.id}`}>Edit</Link>
-          )}
-        </div>
-      ))}
+      <div className="comments-container">
+        {commentsResult.rows.map((comment) => (
+          <div key={comment.id + comment.content} className="comment">
+            <ProfileName
+              profileid={comment.profile_id}
+              className="commentprofile"
+            />
+            <p>{comment.content}</p>
+            {profileUserId.id === commentsResult.profile_id && (
+              <div className="actionComment">
+                <Link
+                  href={`/recipes/${params.id}/comments/${comment.id}/edit`}
+                >
+                  Edit
+                </Link>
+                <Link
+                  href={`/recipes/${params.id}/comments/${comment.id}/delete`}
+                >
+                  Delete
+                </Link>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

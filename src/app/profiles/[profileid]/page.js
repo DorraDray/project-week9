@@ -32,11 +32,19 @@ export default async function ProfilePage({ params }) {
   }
 
   return (
-    <div>
-      <h2>Profile </h2>
-      <form action={handleFollowProfile}>
-        <button>{followed ? "Unfollow" : "Follow"}</button>
-      </form>
+    <div className="profileContainer">
+      <div className="leftPanel">
+        <h2>{singleProfile.username}</h2>
+        <img src={singleProfile.photo} className="profileImage" />
+      </div>
+      <div className="rightPanel">
+        <form action={handleFollowProfile}>
+          <button className="followButton">
+            {followed ? "Unfollow" : "Follow"}
+          </button>
+        </form>
+        <p className="bio"> Bio: {singleProfile.bio}</p>
+      </div>
     </div>
   );
 }

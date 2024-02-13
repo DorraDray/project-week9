@@ -39,18 +39,160 @@ nav a:hover,
 }
 /* SingleRecipePage.module.css */
 
-/* SingleRecipePage.module.css */
-
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr; /* Two equal columns */
   gap: 20px; /* Spacing between columns */
+  padding: 20px;
 }
 
 .recipe-info {
   grid-column: span 2; /* Span across both columns */
+  gap: 10px;
 }
-
+.recipeInfoptag {
+  margin-top: 50px;
+  text-align: justify;
+  font-size: larger;
+}
+.recipeInfoname {
+  text-align: center;
+  padding-bottom: 20px;
+}
 .recipe-image {
   max-width: 100%;
+}
+
+/* ProfilePage.module.css */
+.profileContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 20px; /* Gap between columns */
+  padding: 20px;
+}
+
+.leftPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rightPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profileImage {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.followButton {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.followButton:hover {
+  background-color: #0056b3;
+}
+.bio {
+  padding-top: 70px;
+}
+
+/* DeleteConfirmation.module.css */
+.deleterecipecontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.confirmationMessage {
+  font-size: 18px;
+  margin-bottom: 20px;
+  padding-top: 50px;
+}
+
+.deleteButton {
+  background-color: #ff6347;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  background-color: #cc4b39;
+}
+
+/* RecipesList.module.css */
+.actions {
+  display: flex;
+  gap: 10px; /* Add space between action links */
+}
+
+.actions a {
+  display: inline-block;
+  padding: 8px 16px; /* Adjust padding to your preference */
+  background-color: #007bff; /* Set background color */
+  color: #ffffff; /* Set text color */
+  text-decoration: none; /* Remove underline */
+  border-radius: 4px; /* Add border radius for rounded corners */
+  transition: background-color 0.3s ease; /* Add transition for smooth hover effect */
+
+  /* Center text within the button */
+  text-align: center;
+  line-height: 1;
+}
+
+.actions a:hover {
+  background-color: #0056b3;
+}
+/* RecipesList.module.css */
+
+.comments-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.comment {
+  position: relative;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.comment p {
+  margin-bottom: 10px;
+  right: 0%;
+}
+
+.actionComment {
+  position: absolute;
+  bottom: 5px; /* Adjust position for better alignment */
+  right: 5px; /* Adjust position for better alignment */
+  display: flex;
+  gap: 10px;
+}
+
+.actionComment a {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.actionComment a:hover {
+  background-color: #0056b3;
+}
+.commentprofile {
+  margin-right: 0px;
 }
